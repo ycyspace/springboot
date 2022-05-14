@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hello, World</title>
+    <style type="text/css">
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px}
+        #container{height:100%}
+    </style>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=GQp0oBy7p5WIDaWM2tcGuW3M3K3a6TiG">
+    </script>
+</head>
+
+<body>
+<div id="container"></div>
+<script th:inline="javascript">
+    var lat=[[${lat}]]
+    var lng=[[${lng}]]
+    var map = new BMapGL.Map("container");
+    var p1 = new BMapGL.Point(lng,lat);
+    var marker=new BMapGL.Marker(p1)
+    map.addOverlay(marker)
+    map.centerAndZoom(p1,15)
+``
+</script>
+</body>
+</html>
